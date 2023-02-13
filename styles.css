@@ -1,0 +1,29 @@
+.output-block {
+  border: 1px solid grey;
+  padding: 15px;
+  min-width: 200px;
+}
+.range {
+  min-width: 200px;
+}
+.range-block {
+  padding: 15px;
+}
+.output {
+  display: flex;
+  border: 1px solid grey;
+  padding: 30px;
+  justify-content: space-around;
+  max-width: 500px;
+  margin: 30px;
+}
+.reset-btn {
+  margin-left: 30px;
+  width: 150px;
+  height: 30px;
+  cursor: pointer;
+  background-color: rgb(61, 61, 240);
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
