@@ -23,12 +23,12 @@ export class App {
         value: input.createInput().value,
       };
       const outputBlock = new OutputBlock(`${data.id}`, `${data.value}`, output);
-      outputBlock.renderContent(i, data);
+      outputBlock.renderContent();
 
       input.createInput().addEventListener('input', () => {
         data.id = input.createInput().id;
         data.value = input.createInput().value;
-        outputBlock.renderContent(i, data);
+        outputBlock.updateData(data);
       });
     }
 

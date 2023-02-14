@@ -3,6 +3,7 @@
   border: 1px solid grey;
   justify-content: center;
   margin: 40px;
+  max-width: 600px;
 }
 .output-block {
   border: 1px solid grey;
