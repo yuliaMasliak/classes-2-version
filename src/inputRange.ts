@@ -19,14 +19,14 @@ export class InputRange {
     return this.el as HTMLInputElement;
   }
 
-  createOutputValues() {
-    const outputValue = document.createElement('div') as HTMLElement;
-    outputValue.innerHTML = this.getRangeValue();
-    this.el.addEventListener('input', () => {
-      outputValue.innerHTML = this.getRangeValue();
-    });
-    return outputValue as HTMLElement;
-  }
+  // createOutputValues() {
+  //   const outputValue = document.createElement('div') as HTMLElement;
+  //   outputValue.innerHTML = this.getRangeValue();
+  //   this.el.addEventListener('input', () => {
+  //     outputValue.innerHTML = this.getRangeValue();
+  //   });
+  //   return outputValue as HTMLElement;
+  // }
 
   getRangeValue() {
     return `Range №${this.el.id} has value ${this.el.value}`;
@@ -34,6 +34,6 @@ export class InputRange {
 
   resetOutputValues() {
     this.el.valueAsNumber = 0;
-    this.createOutputValues();
+    // this.createOutputValues();
   }
 }

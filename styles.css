@@ -1,3 +1,9 @@
+.app {
+  display: flex;
+  border: 1px solid grey;
+  justify-content: center;
+  margin: 40px;
+}
 .output-block {
   border: 1px solid grey;
   padding: 15px;
@@ -7,10 +13,16 @@
   min-width: 200px;
 }
 .range-block {
+  display: flex;
+  flex-direction: column;
   padding: 15px;
+  text-align: center;
+  align-items: center;
+  padding-top: 50px;
 }
 .output {
   display: flex;
+  flex-direction: column;
   border: 1px solid grey;
   padding: 30px;
   justify-content: space-around;
@@ -18,7 +30,7 @@
   margin: 30px;
 }
 .reset-btn {
-  margin-left: 30px;
+  margin-left: 40px;
   width: 150px;
   height: 30px;
   cursor: pointer;

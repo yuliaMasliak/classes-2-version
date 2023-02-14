@@ -1,40 +1,41 @@
-import { InputRange } from './InputRange';
-import { RangeBlock } from './rangeBlock';
-import { ResetButton } from './resetButton';
-import { Event } from './event';
+import { IData } from './interfaces';
 
-export class OutputBlock extends RangeBlock {
-  renderContent(): string | Node {
-    const inputs: InputRange[] = [];
+export class OutputBlock {
+  output: HTMLElement;
 
-    for (let i = 1; i < 4; i += 1) {
-      const input: InputRange = new InputRange(i);
-      inputs.push(input);
+  html: HTMLElement;
 
-      const eventClass = new Event(input.createInput(), input.createInput().value);
-      eventClass.onChange = (data) => {
-        this.updateData(data);
-        console.log(data);
-      };
-    }
-    const resetBtn = new ResetButton();
-    this.renderRanges(inputs);
+  value: string;
 
+  id: string;
+
+  data: IData;
+
+  constructor(id: string, value: string, html: HTMLElement) {
+    this.data = {
+      id,
+      value,
+    };
+    this.html = html;
+  }
+
+  renderContent(id: number, data: IData) {
     const output = document.createElement('div') as HTMLElement;
-    output.classList.add('output');
-    const outputValuesBlock = document.createElement('div') as HTMLElement;
-    outputValuesBlock.classList.add('output-block');
-    inputs.forEach((input) => {
-      outputValuesBlock.append(input.createOutputValues());
-    });
-    const appBlock = document.createElement('div');
-    appBlock.classList.add('app');
-    output.append(this.renderRanges(inputs), outputValuesBlock);
-    appBlock.append(output, resetBtn.createBtn(inputs));
-    return appBlock as Node;
+    output.classList.add('output-values');
+
+    const outputValue = document.createElement('div') as HTMLElement;
+    outputValue.setAttribute('id', `${id}-value`);
+
+    outputValue.innerHTML = '';
+    outputValue.innerHTML = `Range №${data.id} has value ${data.value}`;
+
+    output.append(outputValue);
+
+    this.html.append(output);
+    return this.html as Node;
   }
 
-  updateData(data: string) {
-    console.log(data);
-  }
+  // updateData(data: IData) {
+  //   return `Range №${data.id} has value ${data.value}`;
+  // }
 }
